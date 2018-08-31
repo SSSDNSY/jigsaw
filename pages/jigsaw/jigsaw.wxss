@@ -1,0 +1,94 @@
+/**jigsaw.wxss**/
+@font-face { 
+  font-family: SketchRockwell; /*这里是说明调用来的字体名字*/ 
+  src: url(‘SketchRockwell.ttf’); /*这里是字体文件路径*/ 
+} 
+.my_CSS3_class { 
+  font-family: SketchRockwell; /*这里设置某参数的字体值，在这里是“my_CSS3_class”调用了你刚才声明的字体值"SketchRockwell"*/ 
+  font-size: 3.2em; /*这里是字体大小*/ 
+} 
+.container {
+  height: 100%;
+  padding: 200rpx 0;
+}
+
+.flex-item {
+  width: 1.4em;
+  height: 1.4em;
+  background-color: lightskyblue;
+  text-align: center;
+  margin: 5rpx;
+  font-size: 150rpx;
+  border-radius: 10rpx;
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: 700;
+  display: block;
+  padding: 8rpx;
+  box-shadow: 0rpx 9rpx 0rpx rgba(31, 5, 50, 1), 0rpx 9rpx 25rpx rgba(0, 0, 0, 0.7);
+}
+
+.flex-item-pressed {
+  transition: all 0.1s ease;
+  box-shadow: 0px 3px 0px rgba(219, 31, 5, 1), 0px 3px 6px rgba(0, 0, 0, 0.9);
+}
+
+.text_counter {
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+  padding: 1%;
+}
+
+.text_counter .text_sum_counter {
+  font-weight: 400;
+  font-size: 100rpx;
+  line-height: 100%;
+  font-family: "cursive,serif,sans-serif,cursive,fantasy,monospace";
+  border-radius: 60%;
+  width: 0.8em;
+  height: 0.8em;
+  /* background-color:#FFB300; */
+  background-color: ghostwhite;
+}
+
+.btn_list {
+  display: inline;
+  position: relative;
+  top: 3em;
+}
+
+.btn_list .btn_replay {
+  right: 3em;
+}
+
+.btn_list .btn_auto {
+  left: 3em;
+}
+
+.btn_list  button {
+  display: inline-flex;
+  position: relative;
+  background-color: grey;
+  color: #fff;
+  background-image: linear-gradient(bottom, rgb(142,142,142) 0%, rgb(206,206,206) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(142,142,142) 0%, rgb(206,206,206) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(142,142,142) 0%, rgb(206,206,206) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(142,142,142) 0%, rgb(206,206,206) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(142,142,142) 0%, rgb(206,206,206) 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(142,142,142)), color-stop(1, rgb(206,206,206)));
+  box-shadow: inset 0rpx 1rpx 0rpx #DCDCDC, 0rpx 6rpx 0rpx #334;
+  border-radius: 15rpx;
+}
+
+.btn_list  button.button-hover {
+  color: #334;
+  text-shadow: 0rpx 1rpx 1rpx rgba(255, 255, 255, 0.3);
+  background: rgb(142,142,142);
+  -webkit-box-shadow: inset 0rpx 1rpx 0rpx #DCDCDC, inset 0rpx -1rpx 0rpx #334;
+  -moz-box-shadow: inset 0rpx 1rpx 0rpx #DCDCDC, inset 0rpx -1rpx 0rpx #334;
+  -o-box-shadow: inset 0rpx 1rpx 0rpx #DCDCDC, inset 0rpx -1rpx 0rpx #334;
+  box-shadow: inset 0rpx 1rpx 0rpx #DCDCDC, inset 0rpx -1rpx 0rpx #334;
+  top: 3rpx;
+}

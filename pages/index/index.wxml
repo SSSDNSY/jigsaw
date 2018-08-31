@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else> -->
+      <!-- <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text> -->
+      <open-data type="userAvatarUrl"  class="userinfo-avatar" background-size="cover"></open-data>
+      <open-data type="userNickName" class="userinfo-nickname" lang="zh_CN"></open-data>
+    <!-- </block> -->
+  </view>
+
+    <rich-text class='readme-text' bindtap="bindViewTap">
+      <image class='readme-gif' src='../img/readme.gif' alt='教程动图加载中...'
+       style='height:{{sysWidth*0.7}}px;width:{{sysWidth*0.7}}px;'></image>
+      <view class="usermotto">
+        <text class="user-motto1">轻</text>
+        <text class="user-motto1">触</text>
+        <text class="user-motto1">屏</text>
+        <text class="user-motto1">幕</text>
+        <text class="user-motto1">开</text>
+        <text class="user-motto1">始</text>
+      </view>
+    </rich-text>
+    <ad unit-id="adunit-52a8550a1a32708a"></ad>
+
+</view>

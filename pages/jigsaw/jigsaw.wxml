@@ -1,0 +1,39 @@
+<!--jigsaw.wxml-->
+<view class="container">
+  
+  <view class="text_counter">
+    <text class="text_sum_counter">{{counter-1}}</text>
+  </view>
+
+  <view class="section">
+    <view class="flex-wrp" style="display:flex;flex-direction:row; justify-content:space-around;">
+      <view id="item1{{numArr[0]}}" class="flex-item"style="visibility:{{visArr[0]}};" bindtap="gameCotrol">{{numArr[0]}}</view>
+      <view id="item2{{numArr[1]}}" class="flex-item"style="visibility:{{visArr[1]}};" bindtap="gameCotrol">{{numArr[1]}}</view>
+      <view id="item3{{numArr[2]}}" class="flex-item"style="visibility:{{visArr[2]}};" bindtap="gameCotrol">{{numArr[2]}}</view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="flex-wrp" style="display:flex;flex-direction:row; justify-content:space-around;">
+      <view id="item4{{numArr[3]}}" class="flex-item"style="visibility:{{visArr[3]}};" bindtap="gameCotrol">{{numArr[3]}}</view>
+      <view id="item5{{numArr[4]}}" class="flex-item"style="visibility:{{visArr[4]}};" bindtap="gameCotrol">{{numArr[4]}}</view>
+      <view id="item6{{numArr[5]}}" class="flex-item"style="visibility:{{visArr[5]}};" bindtap="gameCotrol">{{numArr[5]}}</view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="flex-wrp" style="display:flex;flex-direction:row; justify-content:space-around;">
+      <view id="item7{{numArr[6]}}" class="flex-item"style="visibility:{{visArr[6]}};" bindtap="gameCotrol">{{numArr[6]}}</view>
+      <view id="item8{{numArr[7]}}" class="flex-item"style="visibility:{{visArr[7]}};" bindtap="gameCotrol">{{numArr[7]}}</view>
+      <view id="item9{{numArr[8]}}" class="flex-item"style="visibility:{{visArr[8]}};" bindtap="gameCotrol">{{numArr[8]}}</view>
+    </view>
+  </view>
+
+  <view class="btn_list">
+    <button class='btn_replay' bindtap='replay'  disabled="{{banReplay}}">重开</button>
+    <button class='btn_auto'  bindtap='autoPlay' disabled="{{banAuto}}">自动</button>
+  </view>
+
+</view>
+
+<ad unit-id="adunit-6b6d3579b7d0d3b7"></ad>
