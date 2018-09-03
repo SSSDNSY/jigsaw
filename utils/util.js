@@ -390,6 +390,7 @@ function unSolve(arr){
     return false;
   }
 }
+//延时函数
 function sleep(numberMillis) {
   var now = new Date();
   var exitTime = now.getTime() + numberMillis;
@@ -399,9 +400,18 @@ function sleep(numberMillis) {
       return;
   }
 }
+//判空函数
+function isEmpty(e) {
+  for (var i in e){
+    return false
+  }
+  return true;
+}
 module.exports = {
   solver: eightNums_DBFS,
   sleep: sleep,
   unSolve1: unSolve,
-  setSource: setSource
+  setSource: setSource,
+  isEmpty: isEmpty
 }
+

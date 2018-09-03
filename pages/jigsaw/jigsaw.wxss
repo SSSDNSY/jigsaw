@@ -9,9 +9,16 @@
 } 
 .container {
   height: 100%;
-  padding: 200rpx 0;
-}
+} 
 
+page{
+  background-color: #DCDCDC;
+
+}
+ad{
+  bottom:0em;
+  position:absolute;
+}
 .flex-item {
   width: 1.4em;
   height: 1.4em;
@@ -35,42 +42,56 @@
 }
 
 .text_counter {
-  position: absolute;
-  top: 0.5em;
-  left: 0.5em;
-  padding: 1%;
+  /* position:absolute; */
+  padding:1%;
+  top:0em;
+  width:100%;
+  background:#abc;
+  margin:0;
 }
 
 .text_counter .text_sum_counter {
   font-weight: 400;
-  font-size: 100rpx;
+  font-size: 120rpx;
   line-height: 100%;
   font-family: "cursive,serif,sans-serif,cursive,fantasy,monospace";
   border-radius: 60%;
-  width: 0.8em;
-  height: 0.8em;
+  margin-right:-8%;
+  /* padding-left: -50%; */
+  width: 1em;
+  height: 1em;
   /* background-color:#FFB300; */
-  background-color: ghostwhite;
+  /* background-color: ghostwhite; */
 }
 
 .btn_list {
   display: inline;
   position: relative;
-  top: 3em;
+  margin-top: 0.3em;
+  background-color: #abc;
+  width: 100%;
 }
-
+ 
 .btn_list .btn_replay {
-  right: 3em;
+  left: 2em;
 }
 
 .btn_list .btn_auto {
-  left: 3em;
+  left: 2em;
+}
+.btn_list .btn_music {
+  left: 2em;
 }
 
+
+button image{
+  width:1.5em;
+  height:1.5em;
+}
 .btn_list  button {
   display: inline-flex;
   position: relative;
-  background-color: grey;
+  background-color:#cba;
   color: #fff;
   background-image: linear-gradient(bottom, rgb(142,142,142) 0%, rgb(206,206,206) 100%);
   background-image: -o-linear-gradient(bottom, rgb(142,142,142) 0%, rgb(206,206,206) 100%);
@@ -79,7 +100,12 @@
   background-image: -ms-linear-gradient(bottom, rgb(142,142,142) 0%, rgb(206,206,206) 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(142,142,142)), color-stop(1, rgb(206,206,206)));
   box-shadow: inset 0rpx 1rpx 0rpx #DCDCDC, 0rpx 6rpx 0rpx #334;
-  border-radius: 15rpx;
+  border-radius:60rpx;
+  margin-top:0.1em;
+  margin-bottom:1em;
+  height:100%;
+  padding:0.3em;
+
 }
 
 .btn_list  button.button-hover {

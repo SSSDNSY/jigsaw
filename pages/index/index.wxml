@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" bindtap="bindViewTap">
   <view class="userinfo">
     <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else> -->
@@ -10,9 +10,9 @@
     <!-- </block> -->
   </view>
 
-    <rich-text class='readme-text' bindtap="bindViewTap">
-      <image class='readme-gif' src='../img/readme.gif' alt='教程动图加载中...'
-       style='height:{{sysWidth*0.7}}px;width:{{sysWidth*0.7}}px;'></image>
+      <image class='readme-gif' src='https://lg-r7x97sqo-1253811343.cos.ap-shanghai.myqcloud.com/readme.gif' alt='教程动图加载中...'
+       style='width:{{sysWidth*0.7}}px;height:{{sysWidth*0.7}}px;'></image>
+    <rich-text class='readme-text' >
       <view class="usermotto">
         <text class="user-motto1">轻</text>
         <text class="user-motto1">触</text>

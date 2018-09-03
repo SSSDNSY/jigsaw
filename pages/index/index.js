@@ -5,7 +5,7 @@ const utils = require('../../utils/util.js')
 Page({
   data: {
     userInfo: {},
-    sysWidth: '',
+    sysWidth: app.globalData.sysWidth,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
@@ -60,6 +60,7 @@ Page({
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
+      sysWidth: app.globalData.sysWidth,
       hasUserInfo: true
     })
   },

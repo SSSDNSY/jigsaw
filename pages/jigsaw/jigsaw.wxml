@@ -1,11 +1,14 @@
 <!--jigsaw.wxml-->
 <view class="container">
   
-  <view class="text_counter">
-    <text class="text_sum_counter">{{counter-1}}</text>
+  <view class="text_counter" id="img_counter">
+    <!-- <text class="text_sum_counter">{{counter-1}}</text> -->
+    <image  class="text_sum_counter" src='../img/{{bw}}.png' id></image>
+    <image id="counter_1" class="text_sum_counter" src='../img/{{sw}}.png' id></image>
+    <image id="counter_2" class="text_sum_counter" src='../img/{{gw}}.png' id></image>
   </view>
 
-  <view class="section">
+  <view class="section" style="margin-top: 0.1 em;">
     <view class="flex-wrp" style="display:flex;flex-direction:row; justify-content:space-around;">
       <view id="item1{{numArr[0]}}" class="flex-item"style="visibility:{{visArr[0]}};" bindtap="gameCotrol">{{numArr[0]}}</view>
       <view id="item2{{numArr[1]}}" class="flex-item"style="visibility:{{visArr[1]}};" bindtap="gameCotrol">{{numArr[1]}}</view>
@@ -30,10 +33,21 @@
   </view>
 
   <view class="btn_list">
-    <button class='btn_replay' bindtap='replay'  disabled="{{banReplay}}">重开</button>
-    <button class='btn_auto'  bindtap='autoPlay' disabled="{{banAuto}}">自动</button>
+    <button class='btn_replay' bindtap='replay'  disabled="{{disabled}}">
+      <image class='btn_replay_img' src='../img/replay.png'></image>
+    </button>
+    <text style="position: relative;top: 2em;font-size: 0.2em;text-align:center;margin:0 auto;">重玩</text>
+
+    <button class='btn_auto'  bindtap='autoPlay' disabled="{{disabled}}">
+      <image class='btn_auto_img' src='../img/auto.png'></image>
+    </button>
+    <text style="position: relative;top: 2em;font-size: 0.2em;left: 0.2em;">自动</text>
+
+    <button class='btn_music'  bindtap='setMusicc' >
+      <image class='btn_music_img' src='../img/open_music.png'></image>
+    </button>
+    <text style="position: relative;top: 2em;font-size: 0.2em;">声音</text>
   </view>
-
+  <text></text>
 </view>
-
 <ad unit-id="adunit-6b6d3579b7d0d3b7"></ad>
