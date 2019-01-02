@@ -1,0 +1,39 @@
+<!--pages/person/person.wxml-->
+<view class="personal_info">
+<view wx:if="{{isLogin}}">
+	 <view class="photo_wrap" hover-class="navigator-hover" >
+	 <image type="userAvatarUrl"  class="photo"  background-size="cover" src="{{userRaw.avatarUrl}}"></image>
+	</view>
+	<view class="nickname">
+		   <view type="userNickName" class="userinfo-nickname" lang="zh_CN">{{userRaw.nickName}}</view>
+	</view> 
+</view>
+  <button style='width:331rpx;display:{{hidden}}'  hover-class="other-button-hover" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+   请授权登录
+  </button>
+</view>
+
+<modal class="person_modal" hidden="{{hidden}}" title="排行榜" confirm-text="确定"  bindconfirm="confirm" no-cancel="true">
+<view class="person_Lists" >
+    <view  wx:for="{{scoreList}}" wx:key="{{item}}" data-desc='{{item}}' >
+    {{item.key}}   {{item.user_infos}}    {{item.user_step}}         {{item.user_time}}
+    </view>
+  </view>
+</modal>
+
+<view class="person_item_wrap">
+	<view hover-class="navigator-hover" class="person_item" wx:for="{{mode}}" wx:key="{{item}}" data-desc='{{item}}' bindtap='perosnEven' >
+	  {{item}}
+		<span class="arrow_wrap"></span>
+	</view>
+  <navigator class="person_item"
+    target="miniProgram"
+    open-type="navigate"
+    app-id="{{ appId }}"
+    extra-data="{{ extraData }}"
+    version="release">
+    <span class="arrow_wrap"></span>
+    意见反馈
+</navigator>
+</view>
+<ad unit-id="adunit-18a55748e0c0ba55"></ad>
