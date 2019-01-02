@@ -1,0 +1,73 @@
+/* pages/person/person.wxss */
+.person_Lists{
+  height:567rpx;
+}
+.navigator-hover {
+background-color:rgba(0, 0, 0, 0.1);
+opacity:0.7;
+
+}
+.button-hover {
+  width: 331rpx;
+  background-color: red;
+}
+/** 添加自定义button点击态样式类**/
+.other-button-hover {
+  width: 331rpx;
+  background-color: #ececec;
+}
+.personal_info {
+	padding: 20px 0;
+	background-color: #FFF;
+}
+.photo_wrap {
+	text-align:center;
+  width:128rpx;
+  height:128rpx;
+  margin:0 auto;
+
+}
+.photo {
+  width:111rpx;
+  height:110rpx;
+  margin: 10rpx;
+  border-radius: 50%;
+}
+.nickname {
+	margin-top: 15px;
+	text-align: center;
+	color: #696969;
+}
+.person_item_wrap {
+	background-color: #FFF;
+	font-size: 14px;
+	margin-top: 10px;
+	border-top: 1px solid #E5E5E5;
+}
+.person_item {
+    height: 45px;
+	border-bottom: 1px solid #E5E5E5;
+	padding: 0 10px;
+	line-height: 45px;
+	position: relative;
+}
+.arrow_wrap {
+    position: absolute;
+    width: 50px;
+    height: 45px;
+    right: 0;
+    top: 0;
+    background-image: url(https://lg-r7x97sqo-1253811343.cos.ap-shanghai.myqcloud.com/icon-arrow.png);
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: 17px 14px;
+}
+.person_out {
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	background-color: #FFF;
+	margin-top: 10px;
+	border-bottom: 1px solid #E5E5E5;
+	border-top: 1px solid #E5E5E5;
+}
