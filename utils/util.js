@@ -1,3 +1,6 @@
+/**
+*页面、接口工具
+*/
 var app = getApp();
 const okayapi = require('./okayapi.js')
 // const innerAudioContext = wx.createInnerAudioContext()
