@@ -1,5 +1,6 @@
 var app = getApp();
 const okayapi = require('./okayapi.js')
+// const innerAudioContext = wx.createInnerAudioContext()
 /**
  * 调用小白程序接口 -查询用户成绩
  */
@@ -15,6 +16,11 @@ function getScore(inData){
   let params = {
     s: inData.s ? inData.s: "App.Table.FreeFindOne",         // 必须，待请求的接口服务名称
     model_name: 'score_history',        
+    // op_fun: inData.op_fun ? inData.op_fun:'',
+    // op_field: inData.op_field ? inData.op_field:'',
+    // group_filed: inData.group_filed ? inData.group_filed:'',
+    // sort_type:inData.sort_type ? inData.sort_type : '',
+    // top_num: inData.top_num ? inData.top_num : '',
     fields: ['id', 'user_step', 'user_time', 'user_infos', 'add_time', 'update_time','ext_data'],
     field:inData.field?inData.field:'',
     where: inData.where ? inData.where : inData.userInfo ? '[["user_infos", "=",' + inData.userInfo+']]': '[["id", "=", "1"]]',//查询条件
@@ -116,11 +122,28 @@ function isEmpty(e) {
   }
   return true;
 }
+//播放声音
+function music(i){
+  let innerAudioContext = wx.createInnerAudioContext()
+  innerAudioContext.autoplay = false
+  innerAudioContext.src = i.src;
+  innerAudioContext.play()
+  innerAudioContext.onError((res) => {
+    console.log(res.errMsg)
+    console.log(res.errCode)
+    innerAudioContext.destroy()
+  })
+  innerAudioContext.onEnded(() => {
+     innerAudioContext.destroy()
+  })
+}
+
 module.exports = {
   sleep: sleep,
   isEmpty: isEmpty,
   updateScore: updateScore,
   getScore:getScore,
-  hashCode: hashCode
+  hashCode: hashCode,
+  music: music
 }
 
