@@ -1,24 +1,17 @@
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
     
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    
-    wx.cloud.init({
-      traceUser:true
-    })
   },
   globalData: {
     userInfo: null,
-    sysWidth: wx.getSystemInfoSync().windowWidth
+    sysWidth: wx.getSystemInfoSync().windowWidth,
+    okayapiHost: "", // TODO: 配置成你所在的接口域名
+    okayApiAppKey: "", // TODO：改为你的APP_KEY
+    okayApiAppSecrect: "" // TODO：改为你的APP_SECRECT
+  },
+  setting:{
+    music:true
   }
+
 })
