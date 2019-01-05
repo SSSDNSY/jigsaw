@@ -1,5 +1,7 @@
 //jigsaw.js
 const utils = require('../../utils/util.js')
+const DBFSutil = require('../../utils/DBFSutil.js')
+var app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -8,13 +10,13 @@ Page({
       startTime:null,//总共游戏时间
       counter:0,//总共游戏步数
       des:9,//
-      gw:0,
-      sw:0,
-      bw:0,
+      counter:0,
+      highscore:0,
       gameController: 'bindtap = "gameCotrol"',
       numArr: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],//初始化显示值数组
       visArr: ['visible', 'visible', 'visible', 'visible', 'visible', 'visible', 'visible', 'visible', 'hidden'],//初始化显示样式visibility的初始化值
       disabled:false,
+      btnMsc:'音乐'
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -41,34 +43,19 @@ Page({
         arr[rand] = a;
       }
       // console.log('this.unSolve(arr)=' + this.unSolve(arr))
-    } while (!utils.unSolve1(arr))//直到生成有解数组为止
+    } while (!DBFSutil.unSolvel(arr))//直到生成有解数组为止
     arr[8] = 0;//填充第9个块的值
     // console.log('游戏初始化完成' + this.data);
     this.setData({
       startTime: Date.parse(new Date()),
-      counter: 1,
-      gw: 0,
-      sw: 0,
-      bw: 0,
+      counter: 0,
       des: 9,
       gameController: 'bindtap = "gameCotrol"',
       numArr: arr,
       visArr: this.data.visArr,
       visArr: ['visible', 'visible', 'visible', 'visible', 'visible', 'visible', 'visible', 'visible', 'hidden']
     });
-  },
-  //计步器
-  setCounter: function (counter) {
-    if (isNaN(counter)) {
-      return
-    }
-   var gw,sw,bw;
-    return {
-      gw: Math.floor(counter % 10),
-      sw: Math.floor(counter / 10 % 10),
-      bw: Math.floor(counter / 100 % 10)
-    }
-  },
+  }, 
   //游戏完成判定
   iscomplete: function (var1, var2,var3,time) {//var1:numArr,var2:visArr,var:isAuto
     for (var i = 1; i < 9; i++) {
@@ -76,21 +63,44 @@ Page({
         return;
       }
       if (i === 8) {//循环到8没有return 说明游戏完成
+        this.playMusic(true);
         var2[8] = 'visible';
+        let _highscore=0;
+        if (this.data.highscore === 0){
+          _highscore =this.data.counter 
+        }else{
+          if (this.data.counter != 0 && this.data.counter < this.data.highscore){
+            _highscore = this.data.counter 
+          }
+        }
+        
         this.setData({
           gameController: '',
-          visArr: var2
+          visArr: var2,
+          highscore: _highscore
         });
         var that = this;
         var msg='';
-      
+        let usertime = ((Date.parse(new Date()) - this.data.startTime) / (1000));
+        let indata = {};
+        indata.user_step = this.data.counter;
+        indata.user_time = usertime
+        
       if(!var3){
-        msg = '您在' + ((Date.parse(new Date()) - this.data.startTime) / (1000)) + '秒内,用了' + (this.data.counter - 1) +'步完成!';
+        msg = '您在' + usertime + '秒内,用了' + (this.data.counter) +'步完成!';
+        indata.user_infos = app.globalData.userInfo ? JSON.parse(app.globalData.userInfo.rawData).nickName :'未登录' + new Date().toString().substr(4, 20);
+        app.globalData.indata = indata;
       }else{
-        msg = '演示:' + ((Date.parse(new Date())-this.data.startTime )/1000)
+        msg = '演示:' + usertime
           + '秒;计算:' + time +'毫秒;步数:'
-          + (this.data.counter - 1)+'步';
+          + (this.data.counter )+'步';
+        indata.user_infos ='AI player';
       }
+        utils.updateScore(indata).then((res) => {//保存用户数据（小白接口)
+          console.log('jigsaw utils.updateScore  ' + res)
+        }).catch((res) => {
+          console.log(res)
+        });
       wx.showModal({
         title: '完成游戏',
         content: msg ,
@@ -110,6 +120,7 @@ Page({
   },
   //游戏主流程控制
   gameCotrol: function (e) {
+
     var cel = parseInt(e.currentTarget.id.substring(4, 5));//获取方块顺序值
     var celVal = parseInt(e.currentTarget.id.substring(5));//获取某个方块显示值
     var des = this.data.des;
@@ -126,14 +137,10 @@ Page({
       temp = visTempArr[cel-1] ;
       visTempArr[cel - 1] = visTempArr[des - 1];
       visTempArr[des - 1] = temp;
-      console.log("this.data.counter ="+this.data.counter);
-      var tempCounter=this.setCounter(this.data.counter);//计算积分
+      this.playMusic(false);
       this.setData({//这里其实官方api不推荐 频繁的setData. 后续另寻他法， 现在只考虑实现
         numArr: numTempArr,
         visArr:visTempArr,
-        gw: tempCounter.gw,
-        sw: tempCounter.sw,
-        bw: tempCounter.bw,
         des:cel,
         counter:this.data.counter+1
       });
@@ -149,21 +156,39 @@ Page({
       duration: 456
     })
   }, 
-  //设置声音
-  setMusicc:function(){
-    wx.showToast({
-      title: '加班研发中',
-      icon: 'loading',
-      duration: 765
-    });
-  } ,
+  //播放声音
+  playMusic:function(f){
+    // console.log('播放声音')
+    if (app.setting.music){
+      let i = {}; 
+      if(f){
+        i.src ='https://lg-r7x97sqo-1253811343.cos.ap-shanghai.myqcloud.com/success.mp3';//success
+      }else{
+        i.src = "https://lg-r7x97sqo-1253811343.cos.ap-shanghai.myqcloud.com/btnclick.mp3";
+      }
+      utils.music(i)
+    }
+  },
+  musicSet:function(){
+    if (this.data.btnMsc ==='音乐'){
+      this.playMusic(false);
+      app.setting.music=false;
+      this.setData({
+        btnMsc: '静音'
+      })
+    }else{
+      app.setting.music = true;
+      this.setData({
+        btnMsc: '音乐'
+      }) 
+    }
+      
+  },
   //自动完成AI
   autoPlay:function(){
     this.data.counter=0;
     this.setData({
-      gw:0,
-      sw:0,
-      bw:0,
+      counter:0,
       gameController:'',
       startTime: Date.parse(new Date())
     });
@@ -176,22 +201,18 @@ Page({
     })
     var numTempArr = this.data.numArr;//临时数值数组
     var visTempArr = this.data.visArr;//临时显示值数组
-    utils.setSource(this.data.numArr);//放入当前游戏数据
-    var obj=utils.solver().getPath(); //得到求解路径
+    DBFSutil.setSource(this.data.numArr);//放入当前游戏数据
+    var obj = DBFSutil.solver().getPath(); //得到求解路径
     if(obj.solve){
     for (var i = 0; i < obj.path.length;i++){
       for(var j=0;j<9;j++){
         (obj.path[i])[j] == 0?visTempArr[j] = 'hidden' : visTempArr[j] = 'visible';
       }
-    utils.sleep(999);
-    var tempCounter = this.setCounter(this.data.counter);//计算积分
-    this.setData({//
+    utils.sleep(615);
+    this.setData({// 
       numArr: obj.path[i],
       visArr: visTempArr,
-      counter: i+1,
-      gw: tempCounter.gw,
-      sw: tempCounter.sw,
-      bw: tempCounter.bw,
+      counter: this.data.counter + 1
     });
       this.iscomplete(obj.path[i], visTempArr, true,obj.time);
     }
@@ -214,10 +235,10 @@ Page({
     }
 
     return {
-      title: '九宫拼图游戏',
+      title: '益智拼图游戏',
       path: '/pages/index/index',
       success: function (res) {
-        console.log('成功');
+        console.log('转发失败');
       },
       fail: function (res) {
         // 转发失败
