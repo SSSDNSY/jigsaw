@@ -1,13 +1,36 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/jigsaw/jigsaw"
+    "pages/jigsaw/jigsaw",
+    "pages/person/person"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "white",
+    "navigationBarBackgroundColor": "#69c3aa",
+    "navigationBarTitleText": "益智拼图",
+    "navigationBarTextStyle": "fbf9fe"
   },
-  "cloud": true
+  "tabBar": {
+    "color": "#929292",
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#69C3AA",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/img/shouye1.png",
+        "selectedIconPath": "pages/img/shouye.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "我的",
+        "iconPath": "pages/img/wode1.png",
+        "selectedIconPath": "pages/img/wode.png"
+      }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx8abaf00ee8c3202e"
+  ]
 }
