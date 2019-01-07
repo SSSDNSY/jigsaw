@@ -31,9 +31,17 @@ Page({
    */
   onReady: function (e) {
     if (e) this.perosnEven(e);
+   
   },
   onShow: function () {
-
+    if (app.globalData.userInfo) {
+      let rawData = JSON.parse(app.globalData.userInfo.rawData);
+      this.setData({
+        userRaw: rawData,
+        isLogin: true,
+        hidden: "none"
+      })
+    } 
   },
   onHide: function () {
 
@@ -57,12 +65,19 @@ Page({
       case "总排行榜":
         console.log('总排行榜')
         d.mustLogin = false;
-        d.s ="App.Table.FreeQuery"
-        d.where ='[["user_step",">=","20"],["user_step","<=","100"]]'
+        d.s ="App.Table.FreeQuery";
+        d.perpage='50';
+        d.where ='[["user_infos","<>","computer"],["user_infos","<>","AI player"]]'
         utils.getScore(d).then((res) => {
+          console.log(res)
           _this.confirm(res);
+          let _res =[];
+          for (let i=0;i<res.list.length;i++){
+            if (res.list[i].user_infos.indexOf('未登录')===0)
+              res.list[i].user_infos ="未登录";
+          };
           _this.setData({
-            scoreList:res.list
+            scoreList: res.list
           })
         }).catch((res) => {
            console.log(res) 
@@ -130,6 +145,5 @@ Page({
         hidden:"none"
       })
     }
-   
   }
 })
