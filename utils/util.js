@@ -19,11 +19,6 @@ function getScore(inData){
   let params = {
     s: inData.s ? inData.s: "App.Table.FreeFindOne",         // 必须，待请求的接口服务名称
     model_name: 'score_history',        
-    // op_fun: inData.op_fun ? inData.op_fun:'',
-    // op_field: inData.op_field ? inData.op_field:'',
-    // group_filed: inData.group_filed ? inData.group_filed:'',
-    // sort_type:inData.sort_type ? inData.sort_type : '',
-    // top_num: inData.top_num ? inData.top_num : '',
     fields: ['id', 'user_step', 'user_time', 'user_infos', 'add_time', 'update_time','ext_data'],
     field:inData.field?inData.field:'',
     where: inData.where ? inData.where : inData.userInfo ? '[["user_infos", "=",' + inData.userInfo+']]': '[["id", "=", "1"]]',//查询条件
