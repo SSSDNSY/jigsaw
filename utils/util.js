@@ -1,5 +1,6 @@
 /**
-*页面、接口工具
+*author：imi
+*所有页面工具类
 */
 var app = getApp();
 const okayapi = require('./okayapi.js')
@@ -94,8 +95,6 @@ function hashCode(str) {
   }
   return h;
 }
-
-
 
 /**
  * 延时函数
