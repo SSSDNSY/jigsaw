@@ -3,12 +3,83 @@
   font-family: SketchRockwell; /*这里是说明调用来的字体名字*/ 
   src: url(‘SketchRockwell.ttf’); /*这里是字体文件路径*/ 
 } 
+.obj-hover{
+  background-color:rgba(0, 0, 0, 0.1);
+  opacity:0.7;
+
+}
+.scores-container { 
+  float: left;
+  text-align: center;
+  margin-right:16rpx;
+
+}
+.setting-container{
+  float: right;
+}
+.setting{
+  width: 50%;
+  border: 1px #abc solid;
+}
+.score-container, .best-container {
+  position: relative;
+  display: inline-block;
+  background: #66CCCC;
+  padding: 15px 25px;
+  font-size: 25px;
+  height: 25px; 
+  line-height: 47px;
+  font-weight: bold;
+  border-radius: 3px;
+  color: white;
+  text-align: center;
+  margin: 8px 0 0 8px;
+}
+.score-container:after, .best-container:after {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  left: 0;
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 13px;
+  text-align: center;
+  color: #fff;
+}
+.game-container {
+  margin-top: 10rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border:6rpx solid #abc;
+  padding:8rpx;
+  border-radius:20rpx;
+
+}
+.score-container .score-addition, .best-container .score-addition {
+  position: absolute;
+  right: 30px;
+  color: red;
+  font-size: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  color: rgba(119, 110, 101, 0.9);
+  z-index: 100;
+ 
+}
+.score-container:after {
+  content: "Score";
+}
+.best-container:after {
+  content: "Best";
+}
 .my_CSS3_class { 
   font-family: SketchRockwell; /*这里设置某参数的字体值，在这里是“my_CSS3_class”调用了你刚才声明的字体值"SketchRockwell"*/ 
   font-size: 3.2em; /*这里是字体大小*/ 
 } 
 .container {
   height: 100%;
+  background:rgba(199,237,204,1);
 } 
 
 page{
@@ -25,7 +96,7 @@ ad{
   background-color: lightskyblue;
   text-align: center;
   margin: 5rpx;
-  font-size: 150rpx;
+  font-size: 122rpx;
   border-radius: 10rpx;
   color: rgba(255, 255, 255, 1);
   text-decoration: none;
@@ -46,7 +117,7 @@ ad{
   padding:1%;
   top:0em;
   width:100%;
-  background:#abc;
+  background:rgba(199,237,204,1);
   margin:0;
 }
 
@@ -65,56 +136,27 @@ ad{
 }
 
 .btn_list {
+  text-align:center;
   display: inline;
   position: relative;
   margin-top: 0.3em;
-  background-color: #abc;
   width: 100%;
-}
- 
-.btn_list .btn_replay {
-  left: 2em;
-}
-
-.btn_list .btn_auto {
-  left: 2em;
-}
-.btn_list .btn_music {
-  left: 2em;
-}
-
-
-button image{
-  width:1.5em;
-  height:1.5em;
+  padding:11rpx;
 }
 .btn_list  button {
   display: inline-flex;
   position: relative;
-  background-color:#cba;
+  background-color:#336699;
   color: #fff;
-  background-image: linear-gradient(bottom, rgb(142,142,142) 0%, rgb(206,206,206) 100%);
-  background-image: -o-linear-gradient(bottom, rgb(142,142,142) 0%, rgb(206,206,206) 100%);
-  background-image: -moz-linear-gradient(bottom, rgb(142,142,142) 0%, rgb(206,206,206) 100%);
-  background-image: -webkit-linear-gradient(bottom, rgb(142,142,142) 0%, rgb(206,206,206) 100%);
-  background-image: -ms-linear-gradient(bottom, rgb(142,142,142) 0%, rgb(206,206,206) 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(142,142,142)), color-stop(1, rgb(206,206,206)));
-  box-shadow: inset 0rpx 1rpx 0rpx #DCDCDC, 0rpx 6rpx 0rpx #334;
-  border-radius:60rpx;
+   border-radius:0rpx;
   margin-top:0.1em;
   margin-bottom:1em;
   height:100%;
-  padding:0.3em;
+}
+.btn_list .btn_replay{
+  border-radius:30rpx 0rpx 0rpx 30rpx;
 
 }
-
-.btn_list  button.button-hover {
-  color: #334;
-  text-shadow: 0rpx 1rpx 1rpx rgba(255, 255, 255, 0.3);
-  background: rgb(142,142,142);
-  -webkit-box-shadow: inset 0rpx 1rpx 0rpx #DCDCDC, inset 0rpx -1rpx 0rpx #334;
-  -moz-box-shadow: inset 0rpx 1rpx 0rpx #DCDCDC, inset 0rpx -1rpx 0rpx #334;
-  -o-box-shadow: inset 0rpx 1rpx 0rpx #DCDCDC, inset 0rpx -1rpx 0rpx #334;
-  box-shadow: inset 0rpx 1rpx 0rpx #DCDCDC, inset 0rpx -1rpx 0rpx #334;
-  top: 3rpx;
+.btn_list .btn_music{
+border-radius: 0rpx 30rpx 30rpx  0rpx;
 }
