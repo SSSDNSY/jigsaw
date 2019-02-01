@@ -7,6 +7,7 @@ const okayapi = require('./okayapi.js')
 // const innerAudioContext = wx.createInnerAudioContext()
 /**
  * 调用小白程序接口 -查询用户成绩
+ * http://open.okayapi.com/
  */
 function getScore(inData){
   if (inData.mustLogin && !app.globalData.userInfo){
