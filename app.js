@@ -12,5 +12,4 @@ App({
   setting:{
     music:true
   }
-
 })
