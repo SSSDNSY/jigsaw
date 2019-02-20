@@ -333,7 +333,6 @@ function eightNums_DBFS() {
     endT = (new Date()).getTime();
 
     if (!isSolve) return { solve: false, time: endT - beginT, stateNum: count };
-
     /**
      * @description 由path记录的路径还原最终路径结果，从source来的，从target来的 都要，还原两次
      */
@@ -369,11 +368,7 @@ function eightNums_DBFS() {
         flag = source.sta === st[t].sta;
       }
     }
-
   }
-
-
-
 }
 
 /**
