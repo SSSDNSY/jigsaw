@@ -1,4 +1,4 @@
-//app.js
+//app.js global config
 App({
   onLaunch: function () {
   },
