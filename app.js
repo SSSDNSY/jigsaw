@@ -10,6 +10,6 @@ App({
     okayApiAppSecrect: "" // TODO：改为你的APP_SECRECT
   },
   setting:{
-    music:true
+    music:false
   }
 })
