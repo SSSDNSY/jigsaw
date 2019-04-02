@@ -2,7 +2,7 @@
 # 拼图小程序 
 ![微信搜索：益智拼图游戏](https://github.com/Himi7362/jigsaw/blob/master/code.png)
 
-
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 ## 文件结构
 ```
 jigsaw
@@ -44,5 +44,5 @@ jigsaw
 ```
 
 ### License
+[![LICENSE](https://img.shields.io/badge/license-NPL%20(The%20996%20Prohibited%20License)-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 
-[jigsaw is available under the Apache License V2.0](https://github.com/Ezoio/jigsaw/blob/master/LICENSE)
