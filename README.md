@@ -18,12 +18,12 @@ jigsaw
 │   │   │   readme.png
 │   │   │   ...
 │   │
-│   └───index (主页）
+│   └───index （主页）
 │   │   │   index.js
 │   │   │   index.wxml
 │   │   │   index.wxss
 │   │ 
-│   └───jigsaw(游戏主页
+│   └───jigsaw（游戏主页）
 │   │   │   jigsaw.js
 │   │   │   jigsaw.wxml
 │   │   │   jigsaw.wxss
