@@ -2,6 +2,7 @@
 const utils = require('../../utils/util.js')
 const DBFSutil = require('../../utils/DBFSutil.js')
 var app = getApp();
+//引入激励视频
 Page({
   /**
    * 页面的初始数据
