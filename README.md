@@ -37,10 +37,10 @@ jigsaw
 │ 
 │
 └───utils（工具）
-    │   DBFSutil.js(宽度搜索算法）
-    │   md5.js
+    │   DBFSutil.js(解决算法）
+    │   md5.js （加密工具）
     │   okayapi.js （小白接口）
-    │   util.js（通用工具）
+    │   util.js（本程序通用工具）
 ```
 
 ### License
