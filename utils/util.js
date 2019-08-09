@@ -128,7 +128,6 @@ module.exports = {
   isEmpty: isEmpty,
   updateScore: updateScore,
   getScore:getScore,
-  hashCode: hashCode,
   music: music
 }
 
